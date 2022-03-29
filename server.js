@@ -42,7 +42,7 @@ app.get('/test', (request, response) => {
 
 })
 
-app.get('/Book', getBooks);
+app.get('/book', getBooks);
 
 async function getBooks(request, response, next) {
   try {
