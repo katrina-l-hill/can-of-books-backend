@@ -7,9 +7,11 @@ const cors = require('cors');
 const req = require('express/lib/request');
 const res = require('express/lib/response');
 const { once } = require('nodemon');
+//uncomment if seeding of DB is needed
+//require('./books.js');
 
 // bring in mongoose
-const mongoose = reguire('mongroose');
+const mongoose = require('mongoose');
 
 // bring in a schema to interact with books.js
 const Book = require('./models/Book.js');
@@ -44,8 +46,8 @@ app.get('/Book', getBooks);
 
 async function getBooks(request, response, next) {
   try {
-    let results = await Book.find({ email: req.query.email })
-    res.status(200).send(results);
+    let results = await Book.find({email: request.query.email});
+    response.status(200).send(results);
   } catch(error) {
     next(error);
   }
