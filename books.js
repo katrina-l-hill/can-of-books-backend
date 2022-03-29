@@ -19,6 +19,12 @@ async function books() {
         status: true,
         email: 'hgwells@aol.net'
     });
+    await Book.create({
+        title: 'War with the Mutant Spider Ants (Choose Your Own Adventure(R))',
+        description: 'Strange creaters in the bayous of the Florida Everglades',
+        status: true,
+        email: 'edpack@yahoo.com'
+    });
 
 
 // remember to hang up the connection with mongoose
