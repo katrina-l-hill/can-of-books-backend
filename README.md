@@ -72,9 +72,9 @@ Name of feature: __Can of Books_- Lab 11____
 
 Estimate of time needed to complete: _~7 hours___
 
-Start time: _2:30pm____
+Start time: _2:30pm, 9:15pm_(3/28/22);_2:15pm__
 
-Finish time: _____
+Finish time: _6:30pm, 10:45pm_(3/28/22;___
 
 Actual time needed to complete: _____
 
