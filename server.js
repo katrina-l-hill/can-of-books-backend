@@ -10,7 +10,6 @@ const { once } = require('nodemon');
 //uncomment if seeding of DB is needed
 //require('./books.js');
 
-import axios from 'axios';
 
 // bring in mongoose
 const mongoose = require('mongoose');
