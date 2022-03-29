@@ -16,7 +16,7 @@ import axios from 'axios';
 const mongoose = require('mongoose');
 
 // bring in a schema to interact with books.js
-const Book = require('./models/Book.js');
+const Book = require('./models/book.js');
 
 // connect Mongoose to our MongoDB
 mongoose.connect(process.env.DB_URL);
