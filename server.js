@@ -10,12 +10,11 @@ const { once } = require('nodemon');
 //uncomment if seeding of DB is needed
 //require('./books.js');
 
-
 // bring in mongoose
 const mongoose = require('mongoose');
 
 // bring in a schema to interact with books.js
-const Book = require('./models/Book.js');
+const Book = require('./models/book.js');
 
 // connect Mongoose to our MongoDB
 mongoose.connect(process.env.DB_URL);
@@ -43,7 +42,7 @@ app.get('/test', (request, response) => {
 
 })
 
-app.get('/Book', getBooks);
+app.get('/book', getBooks);
 
 async function getBooks(request, response, next) {
   try {
