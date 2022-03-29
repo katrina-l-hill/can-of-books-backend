@@ -2,7 +2,7 @@
 
 require('dotenv').config();
 const mongoose = require('mongoose');
-const Book = require('./models/Book.js');
+const Book = require('./models/book.js');
 mongoose.connect(process.env.DB_URL);
 
 async function books() {
@@ -18,6 +18,12 @@ async function books() {
         description: 'There are worlds, and oh boy...',
         status: true,
         email: 'hgwells@aol.net'
+    });
+    await Book.create({
+        title: 'War with the Mutant Spider Ants (Choose Your Own Adventure(R))',
+        description: 'Strange creaters in the bayous of the Florida Everglades',
+        status: true,
+        email: 'edpack@yahoo.com'
     });
 
 
