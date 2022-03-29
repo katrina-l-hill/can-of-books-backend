@@ -8,14 +8,14 @@ const req = require('express/lib/request');
 const res = require('express/lib/response');
 const { once } = require('nodemon');
 //uncomment if seeding of DB is needed
-//require('./books.js');
+//require('./book.js');
 
 import axios from 'axios';
 
 // bring in mongoose
 const mongoose = require('mongoose');
 
-// bring in a schema to interact with books.js
+// bring in a schema to interact with book.js
 const Book = require('./models/book.js');
 
 // connect Mongoose to our MongoDB
@@ -44,7 +44,7 @@ app.get('/test', (request, response) => {
 
 })
 
-app.get('/Book', getBooks);
+app.get('/book', getBooks);
 
 async function getBooks(request, response, next) {
   try {

@@ -14,6 +14,6 @@ const bookSchema = new Schema({
     email: {type: String, required: true}
   });
 
-const BookModel = mongoose.model('Book', bookSchema);
+const BookModel = mongoose.model('book', bookSchema);
 
 module.exports = BookModel;

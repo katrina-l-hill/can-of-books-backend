@@ -5,7 +5,7 @@ const mongoose = require('mongoose');
 const Book = require('./models/book.js');
 mongoose.connect(process.env.DB_URL);
 
-async function books() {
+async function seed() {
     console.log("seeding");
     await Book.create({
         title: 'History of the Peloponnesian War',
@@ -37,4 +37,4 @@ async function books() {
 mongoose.disconnect();
 }
 
-books();
+seed();

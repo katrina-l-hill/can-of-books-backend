@@ -20,7 +20,7 @@ This application uses React on the front-end and Express, MongoDB, and Mongoose 
 3/28/2022 2:30pm - Application was started by installing npm and Mongoose. Installed npm dependencies and Mongoose. Pushed to GitHub and merged to main. Deployed to MongoDB.
 
 ## Estimates
-3/28/22 - Intial estimate: ~7 hours. Actual time: 5.5 hours.
+3/28/22 - Intial estimate: ~7 hours. Actual time: 6.25 hours.
 3/29/22 - Intial estimate: X hours. Actual time: X hours.
 3/30/22 - Intial estimate: X hours. Actual time: X hours.
 3/31/22 - Intial estimate: X hours. Actual time: X hours.
@@ -78,11 +78,10 @@ Name of feature: __Can of Books_-_Lab 11___
 
 Estimate of time needed to complete: _~7 hours___
 
-Start time: _2:30pm, 9:15pm____
+Start time: _2:30pm, 9:15pm_(3/28/22);_2:15pm_(3/29/22)_
 
-Finish time: _6:30pm, 10:45pm____
+Finish time: _6:30pm, 10:45pm_(3/28/22);_2:55pm_(3/29/22)_
 
-
-Actual time needed to complete: _~5.5 hours
+Actual time needed to complete: _~6.25 hours
 
 
