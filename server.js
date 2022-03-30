@@ -44,9 +44,6 @@ app.get('/test', (request, response) => {
 
 })
 
-app.post('/books', postBooks);
-
-
 app.get('/books', getBooks);
 async function getBooks(request, response, next) {
   let query = {};

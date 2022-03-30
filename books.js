@@ -2,12 +2,10 @@
 
 require('dotenv').config();
 const mongoose = require('mongoose');
-
 const Book = require('./models/book.js');
-
 mongoose.connect(process.env.DB_URL);
 
-async function seed() {
+async function books() {
     console.log("seeding");
     await Book.create({
         title: 'History of the Peloponnesian War',
@@ -39,4 +37,4 @@ async function seed() {
 mongoose.disconnect();
 }
 
-seed();
+books();
