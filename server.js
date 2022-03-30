@@ -8,9 +8,9 @@ const req = require('express/lib/request');
 const res = require('express/lib/response');
 const { once } = require('nodemon');
 //uncomment if seeding of DB is needed
-//require('./book.js');
+require('./books.js');
 
-import axios from 'axios';
+
 
 // bring in mongoose
 const mongoose = require('mongoose');
@@ -44,16 +44,30 @@ app.get('/test', (request, response) => {
 
 })
 
-app.get('/book', getBooks);
-
+app.get('/books', getBooks);
 async function getBooks(request, response, next) {
+  let query = {};
+  if (request.query.email) {
+    query.email = request.query.email;
+  }
   try {
-    let results = await Book.find({email: request.query.email});
+    let results = await Book.find(query);
     response.status(200).send(results);
-  } catch(error) {
+  } catch (error) {
     next(error);
   }
 }
+
+app.post('/books', async (req, res) => {
+  try {
+    const newBook = await Book.create(req.body);
+    res.send(newBook);
+  } catch (error) {
+  console.error(error);
+  res.status(500).send('error creating book');
+}
+});
+
 
 // ERRORS
 app.get('*', (request, response) => {
