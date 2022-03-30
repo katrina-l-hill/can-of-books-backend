@@ -44,6 +44,9 @@ app.get('/test', (request, response) => {
 
 })
 
+app.post('/books', postBooks);
+
+
 app.get('/books', getBooks);
 async function getBooks(request, response, next) {
   let query = {};
@@ -58,15 +61,14 @@ async function getBooks(request, response, next) {
   }
 }
 
-app.post('/books', async (req, res, next) => {
+async function postBooks (req, res, next) {
   try {
     const newBook = await Book.create(req.body);
     res.status(200).send(newBook);
   } catch (error) {
-    console.error(error);
     next(error);
   }
-});
+};
 
 
 // ERRORS
