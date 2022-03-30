@@ -7,6 +7,7 @@ const cors = require('cors');
 const req = require('express/lib/request');
 const res = require('express/lib/response');
 const { once } = require('nodemon');
+const bodyParser = require('body-parser');
 //uncomment if seeding of DB is needed
 require('./models/book.js');
 
@@ -33,18 +34,18 @@ const app = express();
 
 // middleware
 app.use(cors());
+app.use(bodyParser.json());
 
 // define PORT to validate env is working
 const PORT = process.env.PORT || 3002;
 
 // ROUTES
 app.get('/test', (request, response) => {
-
   response.send('test request received')
-
 })
-
 app.get('/books', getBooks);
+app.post('/books', postBooks);
+
 async function getBooks(request, response, next) {
   let query = {};
   if (request.query.email) {
@@ -58,10 +59,10 @@ async function getBooks(request, response, next) {
   }
 }
 
-async function postBooks (req, res, next) {
+async function postBooks (request, response, next) {
   try {
-    const newBook = await Book.create(req.body);
-    res.status(200).send(newBook);
+    const newBook = await Book.create(request.body);
+    response.status(200).send(newBook);
   } catch (error) {
     next(error);
   }
