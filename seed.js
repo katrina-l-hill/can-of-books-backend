@@ -5,13 +5,13 @@ const mongoose = require('mongoose');
 const Book = require('./models/Book.js');
 mongoose.connect(process.env.DB_URL);
 
-async function books() {
+async function seed() {
     console.log("seeding");
     await Book.create({
-        title: 'War and Peace',
-        description: 'Its about war, and about peace',
+        title: 'History of the Peloponnesian War',
+        description: 'Its about history, war, and the Peloponnesians',
         status: true,
-        email: 'tolstoysghost@gmail.com'
+        email: 'thucydides@gmail.com'
     });
     await Book.create({
         title: 'War of the Worlds',
@@ -25,7 +25,12 @@ async function books() {
         status: true,
         email: 'edpack@yahoo.com'
     });
-
+    await Book.create({
+        title: 'Dawn and the School Spirit War (The Baby-Sitters Club #84)',
+        description: 'Teenage girl with school spirit are at war with babysitters',
+        status: true,
+        email: 'annmartin@yahoo.com'
+    });
 
 // remember to hang up the connection with mongoose
 mongoose.disconnect();
