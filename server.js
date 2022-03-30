@@ -8,7 +8,7 @@ const req = require('express/lib/request');
 const res = require('express/lib/response');
 const { once } = require('nodemon');
 //uncomment if seeding of DB is needed
-require('./books.js');
+require('./models/book.js');
 
 
 
@@ -58,15 +58,14 @@ async function getBooks(request, response, next) {
   }
 }
 
-app.post('/books', async (req, res) => {
+async function postBooks (req, res, next) {
   try {
     const newBook = await Book.create(req.body);
-    res.send(newBook);
+    res.status(200).send(newBook);
   } catch (error) {
-  console.error(error);
-  res.status(500).send('error creating book');
-}
-});
+    next(error);
+  }
+};
 
 
 // ERRORS
