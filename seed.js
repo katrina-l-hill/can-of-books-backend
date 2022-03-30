@@ -36,4 +36,4 @@ async function seed() {
 mongoose.disconnect();
 }
 
-books();
+seed();
