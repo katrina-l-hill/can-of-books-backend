@@ -4,8 +4,8 @@
 require('dotenv').config();
 const express = require('express');
 const cors = require('cors');
-const req = require('express/lib/request');
-const res = require('express/lib/response');
+// const req = require('express/lib/request');
+// const res = require('express/lib/response');
 const { once } = require('nodemon');
 const bodyParser = require('body-parser');
 //uncomment if seeding of DB is needed
@@ -45,6 +45,8 @@ app.get('/test', (request, response) => {
 })
 app.get('/books', getBooks);
 app.post('/books', postBooks);
+app.delete('/books/:id', deleteBook);
+
 
 async function getBooks(request, response, next) {
   let query = {};
@@ -68,10 +70,25 @@ async function postBooks (request, response, next) {
   }
 };
 
+async function deleteBook(request, response, next) {
+  // REST verb DELETE // Mongoose Model.findByIdAndDelete()
+  let id = request.params.id;
+  try {
+    console.log(id);
+    await Book.findByIdAndDelete(id);
+    res.send('book deleted');
+  } catch(error) {
+    next(error);
+  }
+}
 
 // ERRORS
-app.get('*', (request, response) => {
-  response.status(404).send('Not availabe');
+app.get('*', (request, response, next) => {
+  response.status(404).send('Server cannot find requested resource');
+});
+
+app.use((error, request, response, next) => {
+  res.status(500).send(error.message);
 });
 
 app.listen(PORT, () => console.log(`listening on ${PORT}`));
