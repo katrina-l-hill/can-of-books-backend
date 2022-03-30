@@ -8,12 +8,14 @@ const req = require('express/lib/request');
 const res = require('express/lib/response');
 const { once } = require('nodemon');
 //uncomment if seeding of DB is needed
-//require('./books.js');
+require('./books.js');
+
+
 
 // bring in mongoose
 const mongoose = require('mongoose');
 
-// bring in a schema to interact with books.js
+// bring in a schema to interact with book.js
 const Book = require('./models/book.js');
 
 // connect Mongoose to our MongoDB
@@ -42,16 +44,30 @@ app.get('/test', (request, response) => {
 
 })
 
-app.get('/book', getBooks);
-
+app.get('/books', getBooks);
 async function getBooks(request, response, next) {
+  let query = {};
+  if (request.query.email) {
+    query.email = request.query.email;
+  }
   try {
-    let results = await Book.find({email: request.query.email});
+    let results = await Book.find(query);
     response.status(200).send(results);
-  } catch(error) {
+  } catch (error) {
     next(error);
   }
 }
+
+app.post('/books', async (req, res) => {
+  try {
+    const newBook = await Book.create(req.body);
+    res.send(newBook);
+  } catch (error) {
+  console.error(error);
+  res.status(500).send('error creating book');
+}
+});
+
 
 // ERRORS
 app.get('*', (request, response) => {
