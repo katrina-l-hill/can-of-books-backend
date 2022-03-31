@@ -34,6 +34,8 @@ const app = express();
 
 // middleware
 app.use(cors());
+// must have this to receive json from a request
+app.use(express.json());
 app.use(bodyParser.json());
 
 // define PORT to validate env is working
@@ -63,8 +65,11 @@ async function getBooks(request, response, next) {
 
 async function postBooks (request, response, next) {
   try {
+    console.log(request.body);
+    // request.body contains title, desc, author, email
+    let createdBook = await Book.create(request.body);
     const newBook = await Book.create(request.body);
-    response.status(200).send(newBook);
+    response.status(200).send(createdBook);
   } catch (error) {
     next(error);
   }
@@ -76,7 +81,7 @@ async function deleteBook(request, response, next) {
   try {
     console.log(id);
     await Book.findByIdAndDelete(id);
-    res.send('book deleted');
+    response.send('book deleted');
   } catch(error) {
     next(error);
   }
@@ -88,7 +93,7 @@ app.get('*', (request, response, next) => {
 });
 
 app.use((error, request, response, next) => {
-  res.status(500).send(error.message);
+  response.status(500).send(error.message);
 });
 
 app.listen(PORT, () => console.log(`listening on ${PORT}`));

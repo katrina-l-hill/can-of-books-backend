@@ -1,6 +1,6 @@
 # Project Name: Can of Books - Backend
 
-**Author**: Katrina Hill
+**Author**: Katrina Hill & Roger Wells
 **Version**: 2.0.0
 
 ## Overview
