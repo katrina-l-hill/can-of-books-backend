@@ -57,6 +57,7 @@ async function getBooks(request, response, next) {
   }
   try {
     let results = await Book.find(query);
+    console.log(results);
     response.status(200).send(results);
   } catch (error) {
     next(error);
