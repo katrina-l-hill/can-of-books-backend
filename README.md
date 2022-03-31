@@ -1,7 +1,7 @@
 # Project Name: Can of Books - Backend
 
 **Author**: Katrina Hill & Roger Wells
-**Version**: 2.0.0
+**Version**: 3.0.0
 
 ## Overview
 This application will allow a user to track what books have impacted them and will recommend the next book the user should read.
@@ -74,14 +74,14 @@ This repository has starter code to begin work on creating your own online books
 
 Books are life-changing. They have the power to enlighten, educate, entertain, heal, and help us grow. Build out this code base to create an web app to track what books have impacted you, and what's recommended to read next.
 
-Name of feature: __Can of Books_-_Lab 11___
+Name of feature: __Can of Books_-_Lab 13___
 
 Estimate of time needed to complete: _~7 hours___
 
-Start time: _2:30pm, 9:15pm_(3/28/22);_2:15pm_(3/29/22)_
+Start time: __
 
-Finish time: _6:30pm, 10:45pm_(3/28/22);_2:55pm_(3/29/22)_
+Finish time: __
 
-Actual time needed to complete: _~6.25 hours
+Actual time needed to complete: ____
 
 
