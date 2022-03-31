@@ -12,25 +12,25 @@ async function seed() {
     await Book.create({
         title: 'History of the Peloponnesian War',
         description: 'Its about history, war, and the Peloponnesians',
-        status: true,
+        author: 'Thucydides',
         email: 'hgwells@aol.net'
     });
     await Book.create({
         title: 'War of the Worlds',
         description: 'There are worlds, and oh boy...',
-        status: true,
+        author: "H.G. Wells",
         email: 'hgwells@aol.net'
     });
     await Book.create({
         title: 'War with the Mutant Spider Ants (Choose Your Own Adventure(R))',
         description: 'Strange creaters in the bayous of the Florida Everglades',
-        status: true,
+        author: "Ed Pack",
         email: 'hgwells@aol.net'
     });
     await Book.create({
         title: 'Dawn and the School Spirit War (The Baby-Sitters Club #84)',
         description: 'Teenage girl with school spirit are at war with babysitters',
-        status: true,
+        author: "Ann Martin",
         email: 'hgwells@aol.net'
     });
 
