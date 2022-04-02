@@ -10,9 +10,8 @@ const { once } = require('nodemon');
 const bodyParser = require('body-parser');
 //uncomment if seeding of DB is needed
 require('./models/book.js');
-
-
-
+// bring in auth0 verified user
+const verifyUser = require('./auth');
 // bring in mongoose
 const mongoose = require('mongoose');
 
@@ -21,6 +20,8 @@ const Book = require('./models/book.js');
 
 // connect Mongoose to our MongoDB
 mongoose.connect(process.env.DB_URL);
+
+
 
 // add validation to confirm we are wired up to our mongo DB
 const db = mongoose.connection;
